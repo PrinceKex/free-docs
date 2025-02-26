@@ -10,11 +10,39 @@ import TableRow from '@tiptap/extension-table-row'
 import Image from '@tiptap/extension-image'
 import ImageResize from 'tiptap-extension-resize-image'
 import { useEditorStore } from '@/store/use-editor-store'
+import Underline from '@tiptap/extension-underline'
+import Text from '@tiptap/extension-text'
+import FontFamily from '@tiptap/extension-font-family'
+import TextStyle from '@tiptap/extension-text-style'
+import Highlight from '@tiptap/extension-highlight'
+import { Color } from '@tiptap/extension-color'
+import Link from '@tiptap/extension-link'
 
 export const Editor = () => {
  const { setEditor } = useEditorStore()
  const editor = useEditor({
   onCreate: ({ editor }) => {
+   setEditor(editor)
+  },
+  onDestroy(props) {
+   setEditor(null)
+  },
+  onUpdate({ editor }) {
+   setEditor(editor)
+  },
+  onSelectionUpdate({ editor }) {
+   setEditor(editor)
+  },
+  onTransaction({ editor }) {
+   setEditor(editor)
+  },
+  onFocus({ editor }) {
+   setEditor(editor)
+  },
+  onBlur({ editor }) {
+   setEditor(editor)
+  },
+  onContentError({ editor }) {
    setEditor(editor)
   },
   editorProps: {
@@ -34,6 +62,19 @@ export const Editor = () => {
    ImageResize,
    TaskItem.configure({ nested: true }),
    TaskList,
+   Underline,
+   Text,
+   TextStyle,
+   FontFamily,
+   Highlight.configure({
+    multicolor: true,
+   }),
+   Color,
+   Link.configure({
+    openOnClick: false,
+    autolink: true,
+    defaultProtocol: 'https',
+   }),
   ],
   content: '<p>Hello World! 🌎️</p>',
  })
