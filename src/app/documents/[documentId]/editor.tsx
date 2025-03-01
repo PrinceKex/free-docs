@@ -17,6 +17,7 @@ import TextStyle from '@tiptap/extension-text-style'
 import Highlight from '@tiptap/extension-highlight'
 import { Color } from '@tiptap/extension-color'
 import Link from '@tiptap/extension-link'
+import TextAlign from '@tiptap/extension-text-align'
 
 export const Editor = () => {
  const { setEditor } = useEditorStore()
@@ -74,6 +75,9 @@ export const Editor = () => {
     openOnClick: false,
     autolink: true,
     defaultProtocol: 'https',
+   }),
+   TextAlign.configure({
+    types: ['heading', 'paragraph'],
    }),
   ],
   content: '<p>Hello World! 🌎️</p>',
