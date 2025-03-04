@@ -110,7 +110,7 @@ export const Navbar = () => {
            <MenubarItem onClick={onSaveHTML}>
             <GlobeIcon className='size-4 mr-2' /> HTML
            </MenubarItem>
-           <MenubarItem onClick={window.print()}>
+           <MenubarItem onClick={() => window.print()}>
             <BsFilePdf className='size-4 mr-2' /> PDF
            </MenubarItem>
            <MenubarItem onClick={onSaveText}>
