@@ -26,6 +26,7 @@ import {
  ItalicIcon,
  PrinterIcon,
  Redo2Icon,
+ RemoveFormattingIcon,
  StrikethroughIcon,
  TextIcon,
  TrashIcon,
@@ -137,21 +138,29 @@ export const Navbar = () => {
            <MenubarItem>
             <BoldIcon className='size-4 mr-2' />
             Bold
+            <MenubarShortcut>xB</MenubarShortcut>
            </MenubarItem>
            <MenubarItem>
             <ItalicIcon className='size-4 mr-2' />
             Italic
+            <MenubarShortcut>xI</MenubarShortcut>
            </MenubarItem>
            <MenubarItem>
             <UnderlineIcon className='size-4 mr-2' />
             Underline
+            <MenubarShortcut>xU</MenubarShortcut>
            </MenubarItem>
            <MenubarItem>
             <StrikethroughIcon className='size-4 mr-2' />
-            Strikethrough
+            <span className=''>Strikethrough&nbsp;</span>
+            <MenubarShortcut>x5</MenubarShortcut>
            </MenubarItem>
           </MenubarSubContent>
          </MenubarSub>
+         <MenubarItem>
+          <RemoveFormattingIcon className='size-4 mr-2' />
+          Clear Formatting
+         </MenubarItem>
         </MenubarContent>
        </MenubarMenu>
       </Menubar>
