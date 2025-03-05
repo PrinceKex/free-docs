@@ -49,16 +49,17 @@ export const RenameDialog = ({
   update({
    id: documentId,
    title: title.trim() || 'Untitled',
-  }).finally(() => {
-   setIsUpdating(false)
-   setOpen(false)
   })
+   .then(() => setOpen(false))
+   .finally(() => {
+    setIsUpdating(false)
+   })
  }
 
  return (
   <Dialog open={open} onOpenChange={setOpen}>
    <DialogTrigger asChild>{children}</DialogTrigger>
-   <DialogContent>
+   <DialogContent onClick={(e) => e.stopPropagation()}>
     <form action='' onSubmit={onSubmit}>
      <DialogHeader>
       <DialogTitle>Rename document</DialogTitle>
