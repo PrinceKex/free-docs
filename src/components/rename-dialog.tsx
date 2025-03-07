@@ -1,17 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Id } from '../../convex/_generated/dataModel'
-import {
- AlertDialog,
- AlertDialogAction,
- AlertDialogCancel,
- AlertDialogContent,
- AlertDialogDescription,
- AlertDialogFooter,
- AlertDialogHeader,
- AlertDialogTitle,
- AlertDialogTrigger,
-} from './ui/alert-dialog'
+
 import { api } from '../../convex/_generated/api'
 import { useMutation } from 'convex/react'
 import {
@@ -25,6 +15,7 @@ import {
 } from './ui/dialog'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
+import { toast } from 'sonner'
 
 interface RenameDialogProps {
  documentId: Id<'documents'>
@@ -50,7 +41,11 @@ export const RenameDialog = ({
    id: documentId,
    title: title.trim() || 'Untitled',
   })
-   .then(() => setOpen(false))
+   .catch(() => toast.error('Something went wrong'))
+   .then(() => {
+    toast.success('Document removed')
+    setOpen(false)
+   })
    .finally(() => {
     setIsUpdating(false)
    })

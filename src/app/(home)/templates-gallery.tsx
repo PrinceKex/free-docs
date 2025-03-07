@@ -12,6 +12,8 @@ import { useMutation } from 'convex/react'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { api } from '../../../convex/_generated/api'
+import Image from 'next/image'
+import { toast } from 'sonner'
 
 export const TemplatesGallery = () => {
  const router = useRouter()
@@ -21,7 +23,9 @@ export const TemplatesGallery = () => {
  const onTemplateClick = (title: string, initialContent: string) => {
   setIsCreating(true)
   create({ title, initialContent })
+   .catch(() => toast.error('Something went wrong'))
    .then((documentId) => {
+    toast.success('Document created')
     router.push(`/documents/${documentId}`)
     //setIsCreating(false)
    })
@@ -59,6 +63,12 @@ export const TemplatesGallery = () => {
           className='size- hover:border-blue-500 rounded-sm border hover: bg-blue-50 transition flex flex-col items-center justify-center bg-white gap-y-4'
          />
          <p className='text-sm font-medium truncate'>{template.label}</p>
+         <Image
+          src={template.imageUrl}
+          alt={template.label}
+          width={120}
+          height={120}
+         />
         </div>
        </CarouselItem>
       ))}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Doc } from '../../../convex/_generated/dataModel'
 import { PaginationStatus } from 'convex/react'
-import { Divide, LoaderIcon } from 'lucide-react'
+import { LoaderIcon } from 'lucide-react'
 import {
  Table,
  TableBody,

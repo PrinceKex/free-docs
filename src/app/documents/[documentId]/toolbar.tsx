@@ -24,13 +24,11 @@ import {
  RemoveFormattingIcon,
  SearchIcon,
  SpellCheckIcon,
- TrendingUp,
  UnderlineIcon,
  Undo2Icon,
  UploadIcon,
 } from 'lucide-react'
 import React, { useState } from 'react'
-import { Editor } from './editor'
 import { useEditorStore } from '@/store/use-editor-store'
 import { Separator } from '@/components/ui/separator'
 import {
@@ -40,7 +38,7 @@ import {
  DropdownMenuItem,
 } from '@/components/ui/dropdown-menu'
 import { type Level } from '@tiptap/extension-heading'
-import { type ColorResult, CirclePicker, SketchPicker } from 'react-color'
+import { type ColorResult, SketchPicker } from 'react-color'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import {

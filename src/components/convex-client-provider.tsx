@@ -1,7 +1,6 @@
 'use client'
 
 import {
- ConvexProvider,
  ConvexReactClient,
  Authenticated,
  Unauthenticated,
@@ -11,7 +10,6 @@ import { ReactNode } from 'react'
 import { ClerkProvider, useAuth, SignIn } from '@clerk/nextjs'
 import { ConvexProviderWithClerk } from 'convex/react-clerk'
 import { FullScreenLoader } from './full-screen-loader'
-i
 
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
 
