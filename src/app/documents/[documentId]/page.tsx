@@ -6,6 +6,7 @@ interface DocumentIdPageProps {
  params: Promise<{ documentId: string }>
 }
 
+// eslint-disable-next-line
 const DocumentIdPage = async ({ params }: DocumentIdPageProps) => {
  //const { documentId } = await params
 

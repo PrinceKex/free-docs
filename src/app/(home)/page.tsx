@@ -9,6 +9,7 @@ import { DocumentsTable } from './documents-table'
 import { useSearchParam } from '@/hooks/use-search-param'
 
 const Home = () => {
+ // eslint-disable-next-line
  const [search, setSearch] = useSearchParam()
  const { results, status, loadMore } = usePaginatedQuery(
   api.documents.get,
